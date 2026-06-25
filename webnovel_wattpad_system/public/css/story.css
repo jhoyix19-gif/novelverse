@@ -1,0 +1,290 @@
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI;
+}
+
+/* BACKGROUND */
+body{
+    color:white;
+    background:
+    linear-gradient(rgba(0,0,0,.88),rgba(0,0,0,.95)),
+    url("images/anime-bg.jpg");
+    background-size:cover;
+    background-attachment:fixed;
+    overflow-x:hidden;
+}
+
+/* FLOATING GLOW EFFECT */
+body::before{
+    content:"";
+    position:fixed;
+    width:400px;
+    height:400px;
+    background:#7f5cff;
+    filter:blur(150px);
+    opacity:.15;
+    top:10%;
+    left:10%;
+    animation:floatGlow 6s infinite alternate;
+}
+
+@keyframes floatGlow{
+    from{transform:translateY(0);}
+    to{transform:translateY(60px);}
+}
+
+/* LAYOUT */
+.reader{
+    display:flex;
+    min-height:100vh;
+}
+
+/* SIDEBAR */
+.sidebar{
+    width:25%;
+    padding:20px;
+    background:rgba(255,255,255,.05);
+    backdrop-filter:blur(15px);
+    border-right:1px solid rgba(255,255,255,.1);
+    animation:slideLeft .6s ease;
+}
+
+@keyframes slideLeft{
+    from{transform:translateX(-30px);opacity:0;}
+    to{transform:translateX(0);opacity:1;}
+}
+
+.sidebar h3{
+    color:#ffb400;
+    text-shadow:0 0 10px #ffb400;
+}
+
+/* CHAPTER BUTTONS */
+.sidebar button{
+    width:100%;
+    padding:10px;
+    margin:6px 0;
+    border:none;
+    border-radius:10px;
+    background:rgba(127,92,255,.25);
+    color:white;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.sidebar button:hover{
+    background:#7f5cff;
+    transform:translateX(6px);
+    box-shadow:0 0 20px #7f5cff;
+}
+
+/* MAIN */
+.main{
+    width:75%;
+    padding:30px;
+    animation:fadeIn .7s ease;
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+/* BACK BUTTON */
+.back{
+    display:inline-block;
+    padding:10px 15px;
+    margin-bottom:15px;
+    background:rgba(127,92,255,.2);
+    color:white;
+    text-decoration:none;
+    border-radius:10px;
+    transition:.3s;
+    border:1px solid rgba(127,92,255,.4);
+}
+
+.back:hover{
+    background:#7f5cff;
+    transform:scale(1.05);
+    box-shadow:0 0 20px #7f5cff;
+}
+
+/* TITLE */
+h1{
+    color:#ffb400;
+    text-shadow:0 0 15px #ffb400;
+}
+
+/* CHAPTER BOX */
+.chapter-box{
+    margin-top:20px;
+    padding:20px;
+    background:rgba(0,0,0,.55);
+    border-radius:15px;
+    line-height:2;
+    min-height:60vh;
+    overflow-y:auto;
+    box-shadow:0 0 25px rgba(127,92,255,.2);
+    animation:slideUp .5s ease;
+}
+
+@keyframes slideUp{
+    from{transform:translateY(20px);opacity:0;}
+    to{transform:translateY(0);opacity:1;}
+}
+
+/* BUTTONS */
+button{
+    padding:10px 15px;
+    margin:10px 5px;
+    border:none;
+    border-radius:10px;
+    background:#7f5cff;
+    color:white;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 20px #7f5cff;
+}
+
+.novel-cover{
+    width:220px;
+    border-radius:18px;
+    box-shadow:0 0 30px rgba(127,92,255,.8);
+    display:block;
+    margin:15px auto;
+    transition:.4s ease;
+    animation:floatCover 4s ease-in-out infinite;
+}
+
+/* hover glow + zoom */
+.novel-cover:hover{
+    transform:scale(1.08) rotate(1deg);
+    box-shadow:0 0 50px #7f5cff;
+}
+
+/* floating anime effect */
+@keyframes floatCover{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
+    100%{transform:translateY(0);}
+}
+
+/* ================= HERO BANNER ================= */
+.hero-banner{
+    height:100vh;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+}
+
+/* BACKGROUND PARALLAX */
+.hero-bg{
+    position:absolute;
+    width:100%;
+    height:120%;
+    background:url("images/anime-bg.jpg");
+    background-size:cover;
+    background-position:center;
+    transform:translateY(0);
+    animation:parallax 12s infinite alternate ease-in-out;
+    filter:brightness(.4) blur(0px);
+}
+
+/* PARALLAX MOVEMENT */
+@keyframes parallax{
+    from{transform:translateY(-20px);}
+    to{transform:translateY(20px);}
+}
+
+/* HERO CONTENT */
+.hero-content{
+    position:relative;
+    text-align:center;
+    z-index:2;
+    animation:fadeInHero 1.5s ease;
+}
+
+@keyframes fadeInHero{
+    from{opacity:0; filter:blur(10px);}
+    to{opacity:1; filter:blur(0);}
+}
+
+/* COVER IMAGE */
+.hero-cover{
+    width:220px;
+    border-radius:15px;
+    box-shadow:0 0 40px #7f5cff;
+    transition:.5s ease;
+    animation:floatCover 4s ease-in-out infinite;
+}
+
+/* FLOATING EFFECT */
+@keyframes floatCover{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-12px);}
+    100%{transform:translateY(0);}
+}
+
+/* ZOOM WHEN CHAPTER CHANGES */
+.hero-cover.zoom{
+    transform:scale(1.2);
+    box-shadow:0 0 80px #7f5cff;
+}
+
+/* TITLE */
+.hero-content h1{
+    color:#ffb400;
+    text-shadow:0 0 20px #ffb400;
+    margin-top:15px;
+}
+
+/* DESCRIPTION */
+.hero-content p{
+    max-width:500px;
+    margin:10px auto;
+    opacity:.9;
+}
+
+/* START BUTTON */
+.start-btn{
+    margin-top:15px;
+    padding:12px 25px;
+    border:none;
+    border-radius:10px;
+    background:linear-gradient(45deg,#7f5cff,#b07cff);
+    color:white;
+    cursor:pointer;
+    font-size:16px;
+    transition:.3s ease;
+    box-shadow:0 0 20px rgba(127,92,255,.5);
+}
+
+.start-btn:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 40px #7f5cff;
+}
+
+/* ================= BLUR TO CLEAR ANIME OPENING ================= */
+body{
+    animation:animeOpen 1.2s ease;
+}
+
+@keyframes animeOpen{
+    from{
+        filter:blur(20px);
+        opacity:0;
+    }
+    to{
+        filter:blur(0);
+        opacity:1;
+    }
+}

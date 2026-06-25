@@ -1,0 +1,394 @@
+
+/* =========================
+   RESET
+========================= */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#0b0b0b;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* =========================
+   ANIMATED BACKGROUND
+========================= */
+body::before{
+    content:"";
+    position:fixed;
+    width:700px;
+    height:700px;
+    background:#7f5cff;
+    border-radius:50%;
+    filter:blur(200px);
+    opacity:.18;
+    top:-250px;
+    left:-250px;
+    animation:moveGlow 10s infinite alternate;
+    z-index:-1;
+}
+
+@keyframes moveGlow{
+    from{
+        transform:translate(0,0);
+    }
+    to{
+        transform:translate(250px,150px);
+    }
+}
+
+/* =========================
+   NAVBAR
+========================= */
+.nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 40px;
+    background:rgba(0,0,0,.7);
+    backdrop-filter:blur(10px);
+    position:sticky;
+    top:0;
+    z-index:999;
+}
+
+.nav h2{
+    color:#ff3c3c;
+    font-size:32px;
+    text-shadow:0 0 20px #ff3c3c;
+}
+
+.nav a{
+    text-decoration:none;
+    color:white;
+    background:#e50914;
+    padding:10px 20px;
+    border-radius:8px;
+    transition:.3s;
+}
+
+.nav a:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 20px #e50914;
+}
+
+/* =========================
+   NETFLIX HERO
+========================= */
+.hero{
+    height:80vh;
+    background:
+    linear-gradient(
+        rgba(0,0,0,.4),
+        rgba(0,0,0,.95)
+    ),
+    url("images/24.jpg");
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    align-items:center;
+    padding:60px;
+
+    animation:heroZoom 12s infinite alternate;
+}
+
+@keyframes heroZoom{
+    from{
+        background-size:100%;
+    }
+    to{
+        background-size:110%;
+    }
+}
+
+.hero-content{
+    max-width:700px;
+}
+
+.badge{
+    display:inline-block;
+    background:#ffb400;
+    color:black;
+    padding:8px 16px;
+    border-radius:30px;
+    font-weight:bold;
+    margin-bottom:15px;
+
+    box-shadow:0 0 25px orange;
+
+    animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.08);}
+    100%{transform:scale(1);}
+}
+
+.hero h1{
+    font-size:70px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    font-size:20px;
+    color:#ddd;
+    line-height:1.8;
+}
+
+.start-btn{
+    display:inline-block;
+    margin-top:25px;
+    padding:15px 30px;
+
+    text-decoration:none;
+    color:white;
+
+    background:
+    linear-gradient(
+        45deg,
+        #7f5cff,
+        #b26fff
+    );
+
+    border-radius:10px;
+
+    transition:.3s;
+
+    box-shadow:
+    0 0 25px rgba(127,92,255,.4);
+}
+
+.start-btn:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 40px #7f5cff;
+}
+
+/* =========================
+   LIBRARY
+========================= */
+.container{
+    padding:50px;
+}
+
+.section-title{
+    font-size:35px;
+    margin-bottom:30px;
+}
+
+.library-grid{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fill,minmax(250px,1fr));
+
+    gap:25px;
+}
+
+.library-card{
+    position:relative;
+    overflow:hidden;
+    border-radius:15px;
+    background:#141414;
+
+    transition:.4s;
+
+    animation:fadeUp .8s ease;
+}
+
+.library-card:hover{
+    transform:scale(1.08);
+    z-index:10;
+
+    box-shadow:
+    0 0 40px rgba(127,92,255,.6);
+}
+
+.library-card img{
+    width:100%;
+    height:360px;
+    object-fit:cover;
+
+    transition:.5s;
+}
+
+.library-card:hover img{
+    transform:scale(1.1);
+}
+
+.library-info{
+    position:absolute;
+    bottom:0;
+    left:0;
+    right:0;
+
+    padding:20px;
+
+    background:
+    linear-gradient(
+        transparent,
+        rgba(0,0,0,.95)
+    );
+
+    transform:translateY(100%);
+    transition:.4s;
+}
+
+.library-card:hover .library-info{
+    transform:translateY(0);
+}
+
+.library-info h4{
+    margin-bottom:10px;
+}
+
+.library-info button{
+    border:none;
+    padding:10px 18px;
+    border-radius:8px;
+    cursor:pointer;
+
+    color:white;
+
+    background:
+    linear-gradient(
+        45deg,
+        #7f5cff,
+        #b26fff
+    );
+
+    transition:.3s;
+}
+
+.library-info button:hover{
+    transform:scale(1.1);
+    box-shadow:0 0 25px #7f5cff;
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+@media(max-width:900px){
+
+    .hero{
+        padding:30px;
+    }
+
+    .hero h1{
+        font-size:45px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .container{
+        padding:20px;
+    }
+
+}
+
+/* WEBTOON STYLE LIBRARY */
+
+.webtoon-list{
+    display:flex;
+    flex-direction:column;
+    gap:25px;
+}
+
+.webtoon-card{
+    display:flex;
+    gap:20px;
+
+    background:#121212;
+    border-radius:20px;
+    overflow:hidden;
+
+    transition:.3s;
+
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.webtoon-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 0 35px rgba(127,92,255,.4);
+}
+
+.webtoon-card img{
+    width:220px;
+    height:280px;
+    object-fit:cover;
+}
+
+.webtoon-info{
+    padding:25px;
+    flex:1;
+}
+
+.webtoon-info h3{
+    font-size:28px;
+    margin-bottom:10px;
+}
+
+.webtoon-info p{
+    color:#cfcfcf;
+    line-height:1.8;
+    margin-bottom:15px;
+}
+
+.meta{
+    color:#9e9e9e;
+    margin-bottom:20px;
+}
+
+.webtoon-info button{
+    border:none;
+    padding:12px 24px;
+    border-radius:10px;
+    cursor:pointer;
+
+    color:white;
+
+    background:linear-gradient(
+        45deg,
+        #7f5cff,
+        #b26fff
+    );
+
+    transition:.3s;
+}
+
+.webtoon-info button:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 25px #7f5cff;
+}
+
+@media(max-width:800px){
+
+    .webtoon-card{
+        flex-direction:column;
+    }
+
+    .webtoon-card img{
+        width:100%;
+        height:300px;
+    }
+
+}

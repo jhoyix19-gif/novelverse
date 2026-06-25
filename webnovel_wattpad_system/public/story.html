@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>The Shadow Monarch - Full Novel</title>
+<link rel="stylesheet" href="css/story.css">
+
+</head>
+
+<body>
+    <div class="hero-banner">
+
+        <div class="hero-bg"></div>
+    
+        <div class="hero-content">
+    
+            <img src="images/24.jpg" class="hero-cover" id="cover">
+    
+            <h1>The Shadow Monarch</h1>
+    
+            <p>
+                A betrayed prince awakens in the Abyss and becomes the ruler of shadows.
+            </p>
+    
+        </div>
+    
+    </div>
+<div class="reader">
+
+<div class="sidebar">
+<h3>📚 Chapters</h3>
+<div id="list"></div>
+</div>
+
+<div class="main">
+
+<a class="back" href="library.html">⬅ Back to Library</a>
+
+<h1>📖 The Shadow Monarch</h1>
+
+<div class="chapter-box" id="content"></div>
+
+<div>
+<button onclick="prev()">⬅ Prev</button>
+<button onclick="next()">Next ➡</button>
+</div>
+
+</div>
+</div>
+
+<script>
+
+/* FULL NOVEL CHAPTERS (EXPANDED STORY STYLE) */
+const chapters = [
+
+`PROLOGUE — FALL OF THE POWERLESS PRINCE
+
+Kael Valen was born into royalty, but never into power. In the Kingdom of Aetheria, magic was not a gift—it was a requirement for existence.
+
+From childhood, Kael was tested repeatedly. Mana crystals shattered in his hands without response. Spell circles rejected him. Even basic elemental resonance failed.
+
+The palace doctors declared him "empty."
+
+His brothers mocked him. Nobles ignored him. Even servants pitied him.
+
+But Kael never stopped trying to prove his worth.
+
+When King Aldric fell ill, chaos spread across the kingdom. Power struggles erupted among heirs.
+
+Prince Darius saw Kael as an obstacle.
+
+One stormy night, Kael was accused of treason without evidence. No trial. No defense.
+
+Dragged through the royal halls, he looked at the place he once called home for the last time.
+
+Then he was thrown into the Abyss of Shadows.`,
+
+`CHAPTER 1 — THE ABYSS OF AWAKENING
+
+Kael should have died instantly.
+
+Instead, he fell endlessly.
+
+The Abyss was not empty—it was alive. Whispering voices surrounded him, speaking in forgotten languages. Shadows moved like living creatures.
+
+When he landed, no ground broke his fall. Instead, darkness absorbed him.
+
+Before him appeared a throne made of broken obsidian and floating black fire.
+
+A voice echoed:
+
+"You are nothing… yet you survived the fall."
+
+Kael demanded answers, but the voice only responded with silence and pressure that crushed his soul.
+
+Then came the offer:
+
+"Sit. And become the Shadow Monarch."
+
+With no hope left, Kael accepted.
+
+Pain erupted through his body as shadows rewrote his existence. His bones transformed. His veins turned dark. His eyes burned with void energy.
+
+When it ended… Kael was no longer human in the same way.
+
+He had become something else.`,
+
+`CHAPTER 2 — RETURN OF THE SHADOW
+
+Time in the Abyss had no meaning.
+
+When Kael returned, the world was unrecognizable.
+
+Kingdoms were at war. Monsters spilled from dimensional cracks. Cities burned under unknown forces.
+
+A legend spread across the lands:
+
+A silent figure appeared in battlefields. No army survived his presence.
+
+They called him the Shadow Executioner.
+
+Entire armies vanished before swords were drawn. Generals died without seeing their attacker.
+
+But the truth was simple:
+
+It was Kael.
+
+He no longer needed to fight directly. Shadows obeyed his will. He could appear anywhere darkness existed.
+
+And for the first time… the powerless prince was feared.`,
+
+`CHAPTER 3 — THE SHADOW LEGION
+
+Kael did not rule alone.
+
+He found people broken by the world:
+
+A knight betrayed by his king.
+A mage hunted for forbidden knowledge.
+A girl sold into slavery.
+A warrior exiled for protecting his clan.
+
+Kael gave them something they had lost:
+
+Purpose.
+
+Together, they became the Shadow Legion.
+
+They did not fight for gold or land. They fought for revenge, justice, and survival.
+
+Their power grew through every battle. Every victory strengthened Kael’s shadow core.
+
+But something ancient began to stir beneath their power… a presence even Kael could not yet understand.`,
+
+`CHAPTER 4 — SEALED TRUTH 🔒`,
+`CHAPTER 5 — VOID KING AWAKENS 🔒`,
+`CHAPTER 6 — FIRST DIMENSION WAR 🔒`,
+`CHAPTER 7 — FALL OF KINGDOMS 🔒`,
+`CHAPTER 8 — SHADOW VS LIGHT EMPIRE 🔒`,
+`CHAPTER 9 — LEGION OF MONSTERS 🔒`,
+`CHAPTER 10 — FINAL WAR BEGINS 🔒`,
+`CHAPTER 11 — REALM BREAK 🔒`,
+`CHAPTER 12 — GODS INTERFERE 🔒`,
+`CHAPTER 13 — SHADOW ASCENSION 🔒`,
+`CHAPTER 14 — BETRAYAL OF LEGION 🔒`,
+`CHAPTER 15 — VOID CORRUPTION 🔒`,
+`CHAPTER 16 — WORLD COLLAPSE 🔒`,
+`CHAPTER 17 — LAST HOPE 🔒`,
+`CHAPTER 18 — FINAL FORM 🔒`,
+`CHAPTER 19 — SACRIFICE 🔒`,
+`EPILOGUE — THE SHADOW THAT REMAINS 🔒`
+
+];
+
+/* BUILD LIST */
+let list = document.getElementById("list");
+
+chapters.forEach((c,i)=>{
+    let b = document.createElement("button");
+    b.innerText = "Chapter " + (i+1);
+    b.onclick = ()=>load(i);
+    list.appendChild(b);
+});
+
+let current = 0;
+
+function load(i){
+
+    if(i >= 4){
+        alert("🔒 Locked chapter!");
+        return;
+    }
+
+    current = i;
+    document.getElementById("content").innerText = chapters[i];
+}
+
+function next(){
+    if(current < 3) load(current+1);
+}
+
+function prev(){
+    if(current > 0) load(current-1);
+}
+
+window.onload = ()=>load(0);
+
+function load(i){
+
+if(i >= 4){
+    alert("🔒 Locked chapter!");
+    return;
+}
+
+current = i;
+document.getElementById("content").innerText = chapters[i];
+
+// 🎯 ZOOM EFFECT ON COVER
+let cover = document.getElementById("cover");
+
+cover.classList.add("zoom");
+
+setTimeout(()=>{
+    cover.classList.remove("zoom");
+},400);
+}
+</script>
+
+</body>
+</html>

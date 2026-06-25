@@ -1,0 +1,492 @@
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#0b0b0b;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* ANIMATED BACKGROUND */
+body::before{
+    content:"";
+    position:fixed;
+    width:600px;
+    height:600px;
+    background:#7f5cff;
+    border-radius:50%;
+    filter:blur(180px);
+    opacity:.25;
+    top:-150px;
+    left:-150px;
+    animation:moveGlow 8s infinite alternate;
+    z-index:-1;
+}
+
+@keyframes moveGlow{
+    from{
+        transform:translate(0,0);
+    }
+    to{
+        transform:translate(200px,150px);
+    }
+}
+
+/* NAVBAR */
+.nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 50px;
+    background:rgba(0,0,0,.6);
+    backdrop-filter:blur(10px);
+    position:sticky;
+    top:0;
+    z-index:999;
+}
+
+.nav h2{
+    color:#ff3c3c;
+    font-size:32px;
+    text-shadow:0 0 15px #ff3c3c;
+}
+
+.nav a{
+    text-decoration:none;
+    color:white;
+    background:#e50914;
+    padding:10px 20px;
+    border-radius:8px;
+    transition:.3s;
+}
+
+.nav a:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 20px #e50914;
+}
+
+/* HERO SECTION */
+.hero-content{
+    padding:60px 30px;
+    display:flex;
+    justify-content:center;
+}
+
+.main-content{
+    width:100%;
+    max-width:1200px;
+    position:relative;
+}
+
+.glow-circle{
+    position:absolute;
+    width:400px;
+    height:400px;
+    background:#7f5cff;
+    border-radius:50%;
+    filter:blur(120px);
+    opacity:.25;
+    top:-80px;
+    left:-80px;
+    animation:floatGlow 5s infinite alternate;
+}
+
+@keyframes floatGlow{
+    from{
+        transform:translateY(0);
+    }
+    to{
+        transform:translateY(40px);
+    }
+}
+
+/* FEATURED NOVEL */
+.novel-banner{
+    display:flex;
+    align-items:center;
+    gap:40px;
+    padding:30px;
+    border-radius:25px;
+    background:rgba(255,255,255,.05);
+    backdrop-filter:blur(15px);
+    overflow:hidden;
+    position:relative;
+}
+
+.cover{
+    width:260px;
+    border-radius:20px;
+    box-shadow:0 0 30px #7f5cff;
+    transition:.5s;
+    animation:floatCover 4s infinite ease-in-out;
+}
+
+.cover:hover{
+    transform:scale(1.08) rotate(2deg);
+    box-shadow:0 0 50px #7f5cff;
+}
+
+@keyframes floatCover{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-15px);}
+    100%{transform:translateY(0);}
+}
+
+.badge{
+    display:inline-block;
+    background:#ffb400;
+    color:black;
+    padding:8px 15px;
+    border-radius:30px;
+    font-weight:bold;
+    box-shadow:0 0 20px #ffb400;
+}
+
+.novel-details h1{
+    font-size:55px;
+    margin:15px 0;
+}
+
+.novel-details p{
+    font-size:18px;
+    color:#ddd;
+    line-height:1.8;
+}
+
+.stats{
+    display:flex;
+    gap:15px;
+    margin:20px 0;
+}
+
+.stats span{
+    background:rgba(255,255,255,.1);
+    padding:10px 15px;
+    border-radius:10px;
+}
+
+/* START BUTTON */
+.start-btn{
+    display:inline-block;
+    text-decoration:none;
+    color:white;
+    background:linear-gradient(
+        45deg,
+        #7f5cff,
+        #a855f7
+    );
+    padding:14px 28px;
+    border-radius:10px;
+    transition:.3s;
+    box-shadow:0 0 20px rgba(127,92,255,.5);
+}
+
+.start-btn:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 35px #7f5cff;
+}
+
+/* NETFLIX HERO */
+.hero-banner{
+    height:80vh;
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    overflow:hidden;
+}
+
+.hero-bg{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:url("images/25.jpg");
+    background-size:cover;
+    background-position:center;
+    filter:brightness(.35);
+    transform:scale(1.1);
+}
+
+.hero-banner::after{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:linear-gradient(
+        to top,
+        #0b0b0b,
+        transparent
+    );
+}
+
+.hero-banner .hero-content{
+    position:relative;
+    z-index:2;
+    flex-direction:column;
+}
+
+.hero-cover{
+    width:180px;
+    border-radius:15px;
+    box-shadow:0 0 35px #7f5cff;
+    margin-bottom:20px;
+    animation:pulseCover 4s infinite;
+}
+
+@keyframes pulseCover{
+    0%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.05);
+    }
+    100%{
+        transform:scale(1);
+    }
+}
+
+.hero-banner h1{
+    font-size:60px;
+    text-shadow:0 0 20px black;
+}
+
+.hero-banner p{
+    max-width:700px;
+    margin:20px auto;
+    font-size:20px;
+}
+
+/* NOVEL GRID */
+.container{
+    padding:50px;
+}
+
+.container h3{
+    margin-bottom:20px;
+    font-size:30px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:#161616;
+    border-radius:15px;
+    overflow:hidden;
+    cursor:pointer;
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px) scale(1.04);
+    box-shadow:0 0 30px rgba(127,92,255,.5);
+}
+
+.card img{
+    width:100%;
+    height:300px;
+    object-fit:cover;
+}
+
+.card .p{
+    padding:15px;
+}
+
+.card h4{
+    color:white;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+
+    .novel-banner{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .cover{
+        width:220px;
+    }
+
+    .novel-details h1{
+        font-size:40px;
+    }
+
+    .hero-banner h1{
+        font-size:38px;
+    }
+
+    .stats{
+        justify-content:center;
+        flex-wrap:wrap;
+    }
+}
+
+/* =========================
+   NETFLIX HERO ZOOM EFFECT
+========================= */
+.hero-bg{
+    animation:heroZoom 12s infinite alternate ease-in-out;
+}
+
+@keyframes heroZoom{
+    from{
+        transform:scale(1.05);
+    }
+    to{
+        transform:scale(1.15);
+    }
+}
+
+/* =========================
+   SHINY CARD EFFECT
+========================= */
+.card{
+    position:relative;
+    overflow:hidden;
+}
+
+.card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-120%;
+    width:100%;
+    height:100%;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.15),
+        transparent
+    );
+    transition:.8s;
+}
+
+.card:hover::before{
+    left:120%;
+}
+
+/* =========================
+   HERO COVER GLOW PULSE
+========================= */
+.hero-cover{
+    animation:
+    pulseCover 4s infinite,
+    glowPulse 2s infinite alternate;
+}
+
+@keyframes glowPulse{
+    from{
+        box-shadow:
+        0 0 25px #7f5cff;
+    }
+    to{
+        box-shadow:
+        0 0 60px #b26fff;
+    }
+}
+
+/* =========================
+   START BUTTON ANIMATION
+========================= */
+.start-btn{
+    position:relative;
+    overflow:hidden;
+}
+
+.start-btn::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:100%;
+    height:100%;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.25),
+        transparent
+    );
+
+    transition:.6s;
+}
+
+.start-btn:hover::before{
+    left:100%;
+}
+
+/* =========================
+   FLOATING PARTICLES
+========================= */
+body::after{
+    content:"";
+    position:fixed;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+
+    background-image:
+    radial-gradient(circle,#ffffff55 1px,transparent 1px),
+    radial-gradient(circle,#7f5cff88 2px,transparent 2px);
+
+    background-size:80px 80px,120px 120px;
+
+    animation:particlesMove 25s linear infinite;
+}
+
+@keyframes particlesMove{
+    from{
+        transform:translateY(0);
+    }
+    to{
+        transform:translateY(-200px);
+    }
+}
+
+/* =========================
+   NETFLIX FADE-IN
+========================= */
+.hero-banner,
+.novel-banner{
+    animation:fadeUp 1s ease;
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* =========================
+   HOVER COVER ZOOM
+========================= */
+.cover:hover,
+.hero-cover:hover{
+    transform:scale(1.08) rotate(2deg);
+}
+
+/* =========================
+   GLASSMORPHISM UPGRADE
+========================= */
+.novel-banner{
+    border:1px solid rgba(255,255,255,.12);
+
+    box-shadow:
+    0 0 30px rgba(127,92,255,.2),
+    inset 0 0 20px rgba(255,255,255,.05);
+}
